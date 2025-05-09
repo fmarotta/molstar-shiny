@@ -8,7 +8,7 @@
 
 * Edit `src/index.tsx`, a React file
 * Build with `npm run build`
-* Copy `build/js/index.js`, `build/css/style.css`, and `build/css/style.css.map` into 
+* Copy `build/js/index.js`, `build/css/style.css`, and `build/css/style.css.map` into the www folder of the shiny app
 
 ## Details
 
