@@ -13,43 +13,6 @@ import { DefaultPluginUISpec, PluginUISpec } from 'molstar/lib/mol-plugin-ui/spe
 import { PluginUIContext } from 'molstar/lib/mol-plugin-ui/context';
 import { Plugin } from 'molstar/lib/mol-plugin-ui/plugin';
 
-import { isPositionLocation } from 'molstar/lib/mol-geo/util/location-iterator';
-import { Vec3 } from 'molstar/lib/mol-math/linear-algebra';
-import { ColorTheme } from 'molstar/lib/mol-theme/color';
-import { ColorThemeCategory } from 'molstar/lib/mol-theme/color/categories';
-import { ThemeDataContext } from 'molstar/lib/mol-theme/theme';
-import { ColorNames } from 'molstar/lib/mol-util/color/names';
-import { ParamDefinition as PD } from 'molstar/lib/mol-util/param-definition';
-
-export function CustomColorTheme(
-    ctx: ThemeDataContext,
-    props: PD.Values<{}>
-): ColorTheme<{}> {
-    const { radius, center } = ctx.structure?.boundary.sphere!;
-    const radiusSq = Math.max(radius * radius, 0.001);
-    const scale = ColorTheme.PaletteScale;
-
-    return {
-        factory: CustomColorTheme,
-        granularity: 'uniform',
-        color: location => {
-            return ColorNames.black;
-        },
-        props: props,
-        description: '',
-    };
-}
-
-export const CustomColorThemeProvider: ColorTheme.Provider<{}, 'basic-wrapper-custom-color-theme'> = {
-    name: 'basic-wrapper-custom-color-theme',
-    label: 'Custom Color Theme',
-    category: ColorThemeCategory.Misc,
-    factory: CustomColorTheme,
-    getParams: () => ({}),
-    defaultValues: { },
-    isApplicable: (ctx: ThemeDataContext) => true,
-};
-
 async function getLoci(structure: Structure, selector: string) {
     if (selector.match("[A-Z]:(\\d+-\\d+,?)+")) {
         var [chain, ranges] = selector.split(":");
