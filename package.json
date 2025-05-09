@@ -1,6 +1,6 @@
 {
   "name": "molstar-shiny",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Custom library for using Mol* in an Shiny app.",
   "main": "src/index.ts",
   "scripts": {
