@@ -66,6 +66,10 @@ export async function initViewer(element: string | HTMLDivElement, pdbContents: 
     createRoot(parent).render(<Plugin plugin={plugin} />)
     // plugin.initViewer(canvas, parent);
 
+    if (pdbContents == "") {
+        return plugin;
+    }
+
     const data = await plugin.builders.data.rawData({
         data: pdbContents,
         label: "meow",
