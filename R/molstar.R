@@ -27,7 +27,7 @@
 #' }
 #'
 #' @export
-molstarOutput <- function(outputId, pdbContents, defaultColor = "#D3D3D3", regionColors = NULL, width = "100%", height = "400px", fill = FALSE) {
+molstarOutput <- function(outputId, pdbContents = "", defaultColor = "#D3D3D3", regionColors = NULL, width = "100%", height = "400px", fill = FALSE) {
   style <- htmltools::css(
     position = "relative",
     width = htmltools::validateCssUnit(width),

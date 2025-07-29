@@ -2,11 +2,37 @@
 
 ## Installation
 
+The package is not on CRAN yet, please install from GitHub.
+
+```r
+devtools::install_github("fmarotta/netcutter")
+```
+
 ## Usage
 
-The package provides (so far) only one function, `molstarOutput()`.
+This package provides (so far) only one function, `molstarOutput()`.
 It is similar to `uiOutput()` (or any other output controller in Shiny) in that it returns some HTML tags and JavaScript code.
 This particular output controller renders a Mol* viewer panel in your Shiny app.
+
+Here is a demo app.
+```r
+library(shiny)
+library(molstarShiny)
+
+pdbFile <- system.file("extdata/AF-P04637-F1-model_v4.pdb", package = "molstarShiny")
+pdbContents <- paste(readLines(pdbFile), collapse = "\n")
+
+ui <- fluidPage(
+  h1("Hello World!"),
+  molstarOutput("P53", pdbContents)
+)
+
+server <- function(input, output, session) {}
+
+shinyApp(ui, server)
+```
+
+![](man/figures/demo_screenshot.png)
 
 ## For developers
 
@@ -36,3 +62,9 @@ The project uses typescript and scss, so we need several build steps:
 1. bundle everything (will create build/js/index.js)
 
 The last two steps are actually handled by esbuild at the same time.
+
+### TODO
+
+- [ ] Accept path to file rather than content
+- [ ] Automatically download structures from common databases
+- [ ] Other customizations beside colors?
