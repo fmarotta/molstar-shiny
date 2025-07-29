@@ -1,5 +1,7 @@
 # molstar-shiny
 
+R package to show molecular structures in a Shniy app through the Mol* library.
+
 ## Installation
 
 The package is not on CRAN yet, please install from GitHub.
