@@ -1,16 +1,28 @@
 # molstar-shiny
 
-## References
+## Installation
+
+## Usage
+
+The package provides (so far) only one function, `molstarOutput()`.
+It is similar to `uiOutput()` (or any other output controller in Shiny) in that it returns some HTML tags and JavaScript code.
+This particular output controller renders a Mol* viewer panel in your Shiny app.
+
+## For developers
+
+This repository contains both the R package and the TypeScript code needed to use the Mol* library.
+
+### References
 
 * https://molstar.org/docs/plugin/custom-library/
 
-## Instructions
+### Instructions
 
 * Edit `src/index.tsx`, a React file
 * Build with `npm run build`
-* Copy `build/js/index.js`, `build/css/style.css`, and `build/css/style.css.map` into the www folder of the shiny app
+* Use `npm run rpack`, which will copy `build/js/index.js`, `build/css/style.css`, and `build/css/style.css.map` into the inst/www folder of the R package
 
-## Details
+### Details
 
 This is the build command in `package.json`.
 The package will be exported as `molstarShiny`: an object with this name will be available in the console after sourcing the bundled script.

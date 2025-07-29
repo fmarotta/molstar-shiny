@@ -1,11 +1,12 @@
 {
   "name": "molstar-shiny",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Custom library for using Mol* in an Shiny app.",
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/style.scss ./build/css/style.css && esbuild src/index.tsx --bundle --outfile=./build/js/index.js --global-name=molstarShiny"
+    "build": "sass src/style.scss build/css/style.css && esbuild src/index.tsx --bundle --outfile=build/js/index.js --global-name=molstarShiny",
+    "rpack": "cp build/css/style.css build/js/index.js build/css/style.css.map inst/www"
   },
   "author": "Federico Marotta",
   "license": "MIT",
