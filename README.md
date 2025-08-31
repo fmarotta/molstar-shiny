@@ -7,7 +7,7 @@ R package to show molecular structures in a Shniy app through the Mol* library.
 The package is not on CRAN yet, please install from GitHub.
 
 ```r
-devtools::install_github("fmarotta/netcutter")
+devtools::install_github("fmarotta/molstar-shiny")
 ```
 
 ## Usage
